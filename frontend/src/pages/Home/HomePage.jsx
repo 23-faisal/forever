@@ -1,5 +1,6 @@
 import BestSeller from "@/components/common/BestSeller/BestSeller";
 import LatestCollection from "@/components/common/LatestCollection/LatestCollection";
+import OutPolicy from "@/components/common/OurPolicy/OutPolicy";
 import Hero from "@/components/Hero/Hero";
 
 const HomePage = () => {
@@ -9,6 +10,7 @@ const HomePage = () => {
         <Hero />
         <LatestCollection />
         <BestSeller />
+        <OutPolicy />
       </div>
     </div>
   );
