@@ -1,3 +1,4 @@
+import LatestCollection from "@/components/common/LatestCollection/LatestCollection";
 import Hero from "@/components/Hero/Hero";
 
 const HomePage = () => {
@@ -5,6 +6,7 @@ const HomePage = () => {
     <div>
       <div>
         <Hero />
+        <LatestCollection />
       </div>
     </div>
   );
