@@ -168,7 +168,7 @@ const products = [
 const LatestCollection = () => {
   const [latestProducts] = useState(products.slice(0, 10));
 
-  console.log(latestProducts);
+   
 
   return (
     <div className="my-10">
