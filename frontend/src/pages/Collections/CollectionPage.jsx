@@ -1,5 +1,6 @@
 import SingleProduct from "@/components/common/SingleProduct/SingleProduct";
 import Title from "@/components/common/Title/Title";
+import useSearchStore from "@/store/useSearchStore";
 import { useEffect, useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
@@ -108,6 +109,7 @@ const products = [
 
 const CollectionPage = () => {
   const [allProducts] = useState(products);
+  const { search, showSearch } = useSearchStore();
 
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
@@ -119,7 +121,10 @@ const CollectionPage = () => {
     let sortedProducts = [...allProducts].filter(
       (product) =>
         (category.length === 0 || category.includes(product.category)) &&
-        (subCategory.length === 0 || subCategory.includes(product.subcategory))
+        (subCategory.length === 0 ||
+          subCategory.includes(product.subcategory)) &&
+        (search === "" ||
+          product.name.toLowerCase().includes(search.toLowerCase()))
     );
 
     if (sortOption === "lowToHigh") {
@@ -129,7 +134,7 @@ const CollectionPage = () => {
     }
 
     setFilterProducts(sortedProducts);
-  }, [category, subCategory, sortOption, allProducts]);
+  }, [category, subCategory, sortOption, allProducts, search, showSearch]);
 
   const toggleCategory = (e) => {
     e.preventDefault();

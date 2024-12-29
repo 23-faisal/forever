@@ -28,7 +28,13 @@ const SearchBar = () => {
         />
         <IoSearch className="w-6 h-6 cursor-pointer " />
       </div>
-      <IoClose onClick={toggleShowSearch} className="w-6 h-6 cursor-pointer " />
+      <IoClose
+        onClick={() => {
+          toggleShowSearch();
+          setSearch('');
+        }}
+        className="w-6 h-6 cursor-pointer "
+      />
 
       {/*  */}
     </div>
