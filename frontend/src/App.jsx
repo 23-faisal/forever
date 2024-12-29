@@ -12,12 +12,14 @@ import PlaceOrderPage from "./pages/PlaceOrder/PlaceOrderPage";
 import OrdersPage from "./pages/Orders/OrdersPage";
 import Navbar from "./components/common/Navbar/Navbar";
 import Footer from "./components/common/Footer/Footer";
+import SearchBar from "./components/common/SearchBar/SearchBar";
 
 function App() {
   return (
     <>
       <div className="flex flex-col min-h-screen  px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
         <Navbar />
+        <SearchBar />
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />

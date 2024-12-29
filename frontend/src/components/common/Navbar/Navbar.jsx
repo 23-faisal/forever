@@ -18,8 +18,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import useSearchStore from "@/store/useSearchStore";
 
 const Navbar = () => {
+  const { toggleShowSearch } = useSearchStore();
+
   return (
     <nav className="py-4">
       <div className="flex justify-between items-center">
@@ -62,7 +65,12 @@ const Navbar = () => {
 
         {/* Right Section */}
         <div className="flex items-center gap-4">
-          <FaSearch className="w-5 h-5 cursor-pointer text-slate-800" />
+          {/* Search Icon */}
+          <FaSearch
+            className="w-5 h-5 cursor-pointer text-slate-800"
+            onClick={toggleShowSearch} // Toggle search bar visibility
+          />
+
           <div>
             <Popover>
               <PopoverTrigger asChild>
