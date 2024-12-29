@@ -6,7 +6,7 @@ const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <div>
+    <div className="mt-20">
       <div className="flex flex-col  sm:grid sm:grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-0 sm:mt-40 text-sm">
         <div>
           <Link to="/">

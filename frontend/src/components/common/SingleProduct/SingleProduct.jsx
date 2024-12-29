@@ -2,14 +2,11 @@ import { Link } from "react-router-dom";
 
 const SingleProduct = ({ product }) => {
   const { _id, name, price, image } = product;
-  console.log(product);
+
   const currency = "$";
 
   return (
-    <Link
-      className="text-gray-700 cursor-pointer "
-      to={`/product/${_id}`}
-    >
+    <Link className="text-gray-700 cursor-pointer " to={`/product/${_id}`}>
       <div className=" overflow-hidden">
         <img
           className="hover:scale-110 transition ease-in-out h-60 w-full object-cover"
