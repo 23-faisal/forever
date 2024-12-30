@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
 import errorHandler from "./utils/errorHandler.js";
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 
@@ -36,6 +37,10 @@ app.get("/", (req, res, next) => {
     next(error);
   }
 });
+
+// user api
+
+app.use("/api/user", userRouter);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
