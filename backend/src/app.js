@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
-import errorHandler from "./utils/errorHandler.js";
 import userRouter from "./routes/user.route.js";
+import productRouter from "./routes/product.route.js";
 
 const app = express();
 
@@ -27,40 +27,33 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 // API Endpoints
-app.get("/", (req, res, next) => {
-  try {
-    res.json({
-      success: true,
-      message: "API is running...",
-    });
-  } catch (error) {
-    next(error);
-  }
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "API is running...",
+  });
 });
 
-// user api
-
+// User API
 app.use("/api/user", userRouter);
 
-// Error Handling Middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: "Something went wrong!" });
-});
+// Product API
+app.use("/api/product", productRouter);
 
 // 404 Middleware
 app.use((req, res, next) => {
-  const error = errorHandler(404, "Resource not found");
-  next(error);
+  res.status(404).json({
+    success: false,
+    message: "Resource not found",
+  });
 });
 
 // Global Error Handler
 app.use((err, req, res, next) => {
   const statusCode = err.status || 500;
-  const message = err.message || "Internal Server Error";
   res.status(statusCode).json({
     success: false,
-    message,
+    message: err.message || "Internal Server Error",
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
   });
 });

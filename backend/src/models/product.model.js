@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema(
     subCategory: { type: String, required: true },
     size: { type: [String], required: true },
     bestSeller: { type: Boolean, default: false },
-    price: { type: Number, required: true },
+    price: { type: Number, required: true, min: 0 },
   },
   { timestamps: true }
 );

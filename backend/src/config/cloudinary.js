@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import multer from "multer";
 import "dotenv/config";
 
 const connectCloudinary = async () => {
