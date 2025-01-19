@@ -110,7 +110,7 @@ const removeProduct = async (req, res, next) => {
 // Single Product Info
 const singleProduct = async (req, res, next) => {
   try {
-    const { productId } = req.query;
+    const { productId } = req.body;
 
     if (!productId) {
       return res
