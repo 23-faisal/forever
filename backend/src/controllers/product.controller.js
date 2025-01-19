@@ -100,7 +100,7 @@ const removeProduct = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: "Product removed successfully",
+      message: "Product removed successfully!",
     });
   } catch (error) {
     next(error);
