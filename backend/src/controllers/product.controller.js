@@ -69,7 +69,7 @@ const addProduct = async (req, res, next) => {
 // List Products
 const listProduct = async (req, res, next) => {
   try {
-    const products = await productModel.find();
+    const products = await productModel.find({});
     res.status(200).json({
       success: true,
       products,
